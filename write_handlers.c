@@ -135,7 +135,7 @@ return (write(1, &buffer[ind], length));
 */
 int write_unsgnd(int is_negative, int ind,
 char buffer[],
-int flags, int width, int precision, int size) 
+int flags, int width, int precision, int size)
 {
 int length = BUFF_SIZE - ind - 1, i = 0;
 char padd = ' ';
@@ -164,7 +164,7 @@ return (write(1, &buffer[ind], length) + write(1, &buffer[0], i));
 else
 {
 return (write(1, &buffer[0], i) + write(1, &buffer[ind], length));
-}      
+}
 }
 return (write(1, &buffer[ind], length));
 }
@@ -198,14 +198,14 @@ if (extra_c)
 buffer[--ind] = extra_c;
 return (write(1, &buffer[ind], length) + write(1, &buffer[3], i - 3));
 }
- else if (!(flags & F_MINUS) && padd == ' ')
+else if (!(flags & F_MINUS) && padd == ' ')
 {
 buffer[--ind] = 'x';
 buffer[--ind] = '0';
 if (extra_c)
 buffer[--ind] = extra_c;
 return (write(1, &buffer[3], i - 3) + write(1, &buffer[ind], length));
-}	
+}
 else if (!(flags & F_MINUS) && padd == '0')
 {
 if (extra_c)
